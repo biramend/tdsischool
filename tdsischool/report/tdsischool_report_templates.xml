@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_tdsischoolintervenant_document">
+    <t t-call="web.external_layout">
+                <h3 style="text-align:center;color:#009FE3;margin-top:50px;">TDSISCHOOL</h3>
+       
+                  <div t-foreach="o.cours_ids" t-as="intervenant">
+                        <!-- eliminer les lignes vides -->
+                        <p> Le cours '  
+                            <span t-esc="intervenant.titre" style="font-weight: bold;"/>
+                        ', n°<span t-esc="intervenant.numero"/> de l'année <span t-esc="intervenant.annee"/> est donné par <span t-field="o.prenom"  style="color:#009FE3;"/> <span t-field="o.nom"  style="color:#009FE3;"/> entre le <span t-esc="intervenant.datedebut"/> et le <span t-esc="intervenant.datefin"/>. C'est un cours de type ' <span t-esc="intervenant.typecours"/>'.  <span t-field="o.prenom" style="color:#009FE3;"/> <span t-field="o.nom" style="color:#009FE3;"/> a le bureau <span t-esc="o.bureau_id.numbureau"/> au bâtiment <span t-esc="o.bureau_id.batiment"/> de <span t-esc="o.bureau_id.centre"/>. Il a les numéros de téléphone <span t-field="o.telephone" style="font-weight: bold;"/> et <span t-field="o.telephone1"/>.
+                        </p>
+                    </div>
+                    <div>
+                        <p style="font-weight: bold;">Il possède les spécialités suivantes :</p>
+                        <ul t-foreach="o.specialite_ids" t-as="spec">
+                           <li>Domaine :<span t-esc="spec.domaine"/>;Spécialité : <span t-esc="spec.speciality"/></li>
+                        </ul>
+                    </div>
+    </t>
+</template>
+
+
+<template id="report_tdsischoolintervenant">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="tdsischool.report_tdsischoolintervenant_document"/>
+        </t>
+    </t>
+</template>
+
+
+</odoo>

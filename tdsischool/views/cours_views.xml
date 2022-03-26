@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="tdsischool_cours_action" model="ir.actions.act_window">
+        <field name="name">Cours</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tdsischool.cours</field>
+        <field name="search_view_id" eval="False"/>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+          </p>
+        </field>
+    </record>
+    <record id="tdsischool_cours_tree" model="ir.ui.view">
+        <field name="name">tdsischool.cours.tree</field>
+        <field name="model">tdsischool.cours</field>
+        <field name="arch" type="xml">
+            <tree string="La liste des courss">
+                <field name="annee"/>
+                <field name="numero"/> 
+                <field name="titre"/> 
+                <field name="typecours"/> 
+                <field name="datedebut"/> 
+                <field name="datefin"/> 
+
+            </tree>
+        </field>
+    </record>
+    <record id="tdsischool_cours_search" model="ir.ui.view">
+        <field name="model">tdsischool.cours</field>
+            <field name="arch" type="xml">
+            <search>
+                <field name="titre"/> 
+                <field name="typecours"/> 
+            </search>
+        </field>
+    </record>
+    <record id="tdsischool_cours_form" model="ir.ui.view">
+        <field name="name">tdsischool.cours.form</field>
+        <field name="model">tdsischool.cours</field>
+        <field name="arch" type="xml">
+            <form string="Détail d'un cours">
+                <sheet>  
+                    <group>
+                        <group>
+                            <field name="annee"/>
+                            <field name="numero"/> 
+                            <field name="titre"/> 
+                            <field name="typecours"/>
+                            <field name="intervenant_id"/>
+                            <field name="datedebut"/> 
+                            <field name="datefin"/> 
+                            <field name="level_ids" widget="many2many_tags"/>
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    
+    <menuitem
+        name="tdsischool"
+        id="menu_tdsischool_root"/>
+
+    <menuitem
+        id="menu_tdsischool_cours"
+        name="cours"
+        parent="menu_tdsischool_root"
+        action="tdsischool_cours_action"
+        sequence="4"/>
+
+</odoo>

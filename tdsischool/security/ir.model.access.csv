@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tdsischool_cours,tdsischool.cours,model_tdsischool_cours,,1,1,1,1
+access_tdsischool_intervenant,tdsischool.intervenant,model_tdsischool_intervenant,,1,1,1,1
+access_tdsischool_bureau,tdsischool.bureau,model_tdsischool_bureau,,1,1,1,1
+access_tdsischool_specialite,tdsischool.specialite,model_tdsischool_specialite,,1,1,1,1
+access_tdsischool_level,tdsischool.level,model_tdsischool_level,,1,1,1,1
+

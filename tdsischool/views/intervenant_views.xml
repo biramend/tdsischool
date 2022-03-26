@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="tdsischool_intervenant_action" model="ir.actions.act_window">
+        <field name="name">Intervenant</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tdsischool.intervenant</field>
+        <field name="search_view_id" eval="False"/>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+          </p>
+        </field>
+    </record>
+    <record id="tdsischool_intervenant_tree" model="ir.ui.view">
+        <field name="name">tdsischool.intervenant.tree</field>
+        <field name="model">tdsischool.intervenant</field>
+        <field name="arch" type="xml">
+            <tree string="La liste des intervenants">
+              <field name="nom"/>
+              <field name="prenom"/>
+              <field name="telephone"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="tdsischool_intervenant_search" model="ir.ui.view">
+        <field name="model">tdsischool.intervenant</field>
+            <field name="arch" type="xml">
+            <search>
+                <field name="nom"/>
+                <field name="prenom"/>
+            </search>
+        </field>
+    </record>
+    <record id="tdsischool_intervenant_form" model="ir.ui.view">
+        <field name="name">tdsischool.intervenant.form</field>
+        <field name="model">tdsischool.intervenant</field>
+        <field name="arch" type="xml">
+            <form string="Détail d'un intervenant">
+                <sheet>  
+                    <group>
+                        <group>
+                            <field name="nom"/>
+                            <field name="prenom"/> 
+                            <field name="telephone"/> 
+                            <field name="telephone1"/> 
+                            <field name="telephone2"/> 
+                            <field name="cours_ids"/>
+                            <field name="specialite_ids"/>
+                            <!-- <field name="bureaui"/>  -->
+                            <field name="bureau_id"/> 
+                        </group>
+                    </group>
+                   <!--  <notebook>
+                        <page string="Cours">
+                            <field name="cours_ids">
+                                <tree>
+                                    <field name="annee"/> 
+                                    <field name="numero"/>
+                                    <field name="titre"/>
+                                    <field name="typecours"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                             <field name="annee"/> 
+                                            <field name="numero"/>
+                                            <field name="titre"/>
+                                            <field name="typecours"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook> -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    
+    <menuitem
+        name="tdsischool"
+        id="menu_tdsischool_root"/>
+
+    <menuitem
+        id="menu_tdsischool_intervenant"
+        name="intervenant"
+        parent="menu_tdsischool_root"
+        action="tdsischool_intervenant_action"
+        sequence="5"/>
+
+</odoo>

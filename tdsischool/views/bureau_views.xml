@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="tdsischool_bureau_action" model="ir.actions.act_window">
+        <field name="name">Bureau</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tdsischool.bureau</field>
+        <field name="search_view_id" eval="False"/>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+          </p>
+        </field>
+    </record>
+    <record id="tdsischool_bureau_tree" model="ir.ui.view">
+        <field name="name">tdsischool.bureau.tree</field>
+        <field name="model">tdsischool.bureau</field>
+        <field name="arch" type="xml">
+            <tree string="La liste des bureaus">
+              <field name="numbureau"/>
+              <field name="batiment"/>
+              <field name="centre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="tdsischool_bureau_search" model="ir.ui.view">
+        <field name="model">tdsischool.bureau</field>
+            <field name="arch" type="xml">
+            <search>
+                <field name="numbureau"/>
+                <field name="batiment"/>
+                <field name="centre"/>
+            </search>
+        </field>
+    </record>
+    <record id="tdsischool_bureau_form" model="ir.ui.view">
+        <field name="name">tdsischool.bureau.form</field>
+        <field name="model">tdsischool.bureau</field>
+        <field name="arch" type="xml">
+            <form string="Détail d'un bureau">
+                <sheet>  
+                    <group>
+                        <group>
+                           <field name="numbureau"/>
+                          <field name="batiment"/>
+                          <field name="centre"/> 
+                          <field name="intervenant_list"/>
+                        </group>
+                    </group>
+                    <!-- <notebook>
+                        <page string="Intervenant">
+                            <field name="intervenant_ids">
+                                <tree>
+                                    <field name="nom"/> 
+                                    <field name="prenom"/>
+                                    <field name="telephone"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                             <field name="nom"/> 
+                                            <field name="prenom"/>
+                                            <field name="telephone"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook> -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    
+    <menuitem
+        name="tdsischool"
+        id="menu_tdsischool_root"/>
+
+    <menuitem
+        id="menu_tdsischool_bureau"
+        name="bureau"
+        parent="menu_tdsischool_root"
+        action="tdsischool_bureau_action"
+        sequence="6"/>
+
+</odoo>

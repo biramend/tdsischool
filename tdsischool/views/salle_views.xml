@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="tdsischool_salle_action" model="ir.actions.act_window">
+        <field name="name">Salle</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tdsischool.salle</field>
+        <field name="search_view_id" eval="False"/>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+          </p>
+        </field>
+    </record>
+    <record id="tdsischool_salle_tree" model="ir.ui.view">
+        <field name="name">tdsischool.salle.tree</field>
+        <field name="model">tdsischool.salle</field>
+        <field name="arch" type="xml">
+            <tree string="La liste des courss">
+                <field name="nom"/>
+                <field name="nombreplace"/>
+            </tree>
+        </field>
+    </record>
+    <record id="tdsischool_cours_search" model="ir.ui.view">
+        <field name="model">tdsischool.salle</field>
+            <field name="arch" type="xml">
+            <search>
+                <field name="nom"/>
+            </search>
+        </field>
+    </record>
+    <record id="tdsischool_salle_form" model="ir.ui.view">
+        <field name="name">tdsischool.salle.form</field>
+        <field name="model">tdsischool.salle</field>
+        <field name="arch" type="xml">
+            <form string="Détail d'un salle">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nom"/>
+                            <field name="nombreplace"/>
+                            <!-- <field name="cours_id"/> -->
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <menuitem
+        name="tdsischool"
+        id="menu_tdsischool_root"/>
+
+    <menuitem
+        id="menu_tdsischool_salle"
+        name="salle"
+        parent="menu_tdsischool_root"
+        action="tdsischool_salle_action"
+        sequence="9"/>
+
+</odoo>

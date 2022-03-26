@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="tdsischool_specialite_action" model="ir.actions.act_window">
+        <field name="name">Specialite</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tdsischool.specialite</field>
+        <field name="search_view_id" eval="False"/>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+          </p>
+        </field>
+    </record>
+    <record id="tdsischool_specialite_tree" model="ir.ui.view">
+        <field name="name">tdsischool.specialite.tree</field>
+        <field name="model">tdsischool.specialite</field>
+        <field name="arch" type="xml">
+            <tree string="La liste des specialites">
+              <field name="speciality"/>
+              <field name="domaine"/>
+            </tree>
+        </field>
+    </record>
+    <record id="tdsischool_specialite_search" model="ir.ui.view">
+        <field name="model">tdsischool.specialite</field>
+            <field name="arch" type="xml">
+            <search>
+                <field name="speciality"/>
+                <field name="domaine"/>
+            </search>
+        </field>
+    </record>
+    <record id="tdsischool_specialite_form" model="ir.ui.view">
+        <field name="name">tdsischool.specialite.form</field>
+        <field name="model">tdsischool.specialite</field>
+        <field name="arch" type="xml">
+            <form string="Détail d'un specialite">
+                <sheet>  
+                    <group>
+                        <group>
+                           <field name="speciality"/>
+                          <field name="domaine"/>
+                          <field name="intervenant_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    
+    <menuitem
+        name="tdsischool"
+        id="menu_tdsischool_root"/>
+
+    <menuitem
+        id="menu_tdsischool_specialite"
+        name="specialite"
+        parent="menu_tdsischool_root"
+        action="tdsischool_specialite_action"
+        sequence="7"/>
+
+</odoo>
